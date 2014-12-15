@@ -1,5 +1,0 @@
-alias bower='bower '
-alias install='--config.analytics=false --allow-root install'
-
-alias bower='bower '
-alias update='--config.analytics=false --allow-root update'
