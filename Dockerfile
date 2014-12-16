@@ -35,3 +35,16 @@ RUN 	apt-get install --no-install-recommends unzip && \
 	cd /root && \
 	rm -fr /root/ZendOptimizerPlus-7.0.3 && \
 	rm -fr /root/opcache.zip
+
+# Configure xdebug
+RUN 	curl -o /root/xdebug.zip -L https://github.com/derickr/xdebug/archive/xdebug_2_2.zip && \
+	cd /root && \
+	unzip xdebug.zip && \
+	cd /root/xdebug-xdebug_2_2 && \
+	/usr/local/bin/phpize && \ 
+	./configure --enable-xdebug --with-php-config=/usr/local/bin/php-config && \
+	make  && \
+	make install && \
+	cd /root && \
+	rm -fr /root/xdebug-xdebug_2_2 && \
+	rm -fr /root/xdebug.zip
