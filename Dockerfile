@@ -31,4 +31,7 @@ RUN 	apt-get install --no-install-recommends unzip && \
 	/usr/local/bin/phpize && \ 
 	./configure --with-php-config=/usr/local/bin/php-config && \
 	make  && \
-	make install
+	make install && \
+	cd /root && \
+	rm -fr /root/ZendOptimizerPlus-7.0.3 && \
+	rm -fr /root/opcache.zip
