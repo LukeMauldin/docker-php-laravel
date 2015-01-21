@@ -37,15 +37,14 @@ COPY config/php.ini /usr/local/etc/php/php.ini
 # 	rm -fr /root/opcache.zip
 
 # Configure xdebug
-RUN 	apt-get install --no-install-recommends unzip && \
-	curl -o /root/xdebug.zip -L https://github.com/derickr/xdebug/archive/xdebug_2_2.zip && \
+RUN 	curl -o /root/xdebug.tgz http://pecl.php.net/get/xdebug-2.2.6.tgz && \
 	cd /root && \
-	unzip xdebug.zip && \
-	cd /root/xdebug-xdebug_2_2 && \
-	/usr/local/bin/phpize && \ 
+	tar -zxvf xdebug.tgz && \
+	cd /root/xdebug-2.2.6 && \
+	/usr/local/bin/phpize && \
 	./configure --enable-xdebug --with-php-config=/usr/local/bin/php-config && \
 	make  && \
 	make install && \
 	cd /root && \
-	rm -fr /root/xdebug-xdebug_2_2 && \
-	rm -fr /root/xdebug.zip
+	rm -fr /root/xdebug-2.2.6 && \
+	rm -fr /root/xdebug.tgz
