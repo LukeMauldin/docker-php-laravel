@@ -13,7 +13,7 @@ Additional extensions
  - bz2
  - mbstring
  - mcrypt
- - mysql (php 5.4 only)
+ - mysql
  - mysqli
  - opcache
  - pdo_mysql
