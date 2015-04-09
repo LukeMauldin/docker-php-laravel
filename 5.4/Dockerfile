@@ -24,7 +24,7 @@ COPY config/php.ini /usr/local/etc/php/php.ini
 
 # Configure opcache
 RUN 	apt-get install --no-install-recommends unzip && \
-	curl -o /root/opcache.zip -L https://github.com/zendtech/ZendOptimizerPlus/archive/v7.0.4.zip && \
+	curl -L -o /root/opcache.zip -L https://github.com/zendtech/ZendOptimizerPlus/archive/v7.0.4.zip && \
 	cd /root && \
 	unzip opcache.zip && \
 	cd /root/ZendOptimizerPlus-7.0.4 && \
@@ -37,15 +37,15 @@ RUN 	apt-get install --no-install-recommends unzip && \
 	rm -fr /root/opcache.zip
 
 # Configure xdebug
-RUN 	curl -o /root/xdebug.tgz http://pecl.php.net/get/xdebug-2.2.6.tgz && \
+RUN 	curl -L -o /root/xdebug.tgz https://pecl.php.net/get/xdebug-2.3.2.tgz && \
 	cd /root && \
 	tar -zxvf xdebug.tgz && \
-	cd /root/xdebug-2.2.6 && \
+	cd /root/xdebug-2.3.2 && \
 	/usr/local/bin/phpize && \
 	./configure --enable-xdebug --with-php-config=/usr/local/bin/php-config && \
 	make  && \
 	make install && \
 	cd /root && \
-	rm -fr /root/xdebug-2.2.6 && \
+	rm -fr /root/xdebug-2.3.2 && \
 	rm -fr /root/xdebug.tgz
 	
