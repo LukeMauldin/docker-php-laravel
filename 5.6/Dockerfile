@@ -12,7 +12,7 @@ RUN 	apt-get -o 'Acquire::CompressionTypes::Order::="gz"' update && \
  	libmcrypt-dev \
 	libbz2-dev \
 	libpng12-dev && \
-	docker-php-ext-install mcrypt bz2 gd mbstring zip pdo_mysql mysql mysqli pcntl bcmath && \
+	docker-php-ext-install mcrypt bz2 gd mbstring zip pdo_mysql mysql mysqli pcntl bcmath gmp && \
 	apt-get purge --auto-remove -y libmcrypt-dev libbz2-dev libpng12-dev && \
 	apt-get install -y --no-install-recommends libmcrypt4 libbz2-1.0 libpng12-0 && \
 	a2enmod rewrite && \
