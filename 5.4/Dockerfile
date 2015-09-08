@@ -1,4 +1,4 @@
-FROM php:5.4.44-apache
+FROM php:5.4.45-apache
 
 ENV DEBIAN_FRONTEND noninteractive
 
